@@ -2,7 +2,6 @@
 Leer un número y determinar si es mayor a 100.
 """
 
-
 num = float(input("\nIngrese un número: "))
 
 if num > 100:

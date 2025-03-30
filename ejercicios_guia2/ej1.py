@@ -1,7 +1,7 @@
 """
-Crear un programa que simule la gestión de un inventario en una tienda. Utilizar un menú para
-agregar, eliminar, modificar y consultar productos en el inventario. Cada producto tendrá
-un código, nombre, cantidad y precio.
+Crear un programa que simule la gestión de un inventario en una tienda.
+Utilizar un menú para agregar, eliminar, modificar y consultar productos
+en el inventario. Cada producto tendrá un código, nombre, cantidad y precio.
 """
 
 from os import system  # para limpiar la pantalla

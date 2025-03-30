@@ -43,9 +43,7 @@ def depositar(saldo: float) -> float:
     Deposita el monto deseado en la cuenta del usuario.
     """
 
-    monto = pedir_monto("depositar")
-    saldo += monto
-
+    saldo += pedir_monto("depositar")
     input("\n¡Monto depositado exitosamente!")
     return saldo
 

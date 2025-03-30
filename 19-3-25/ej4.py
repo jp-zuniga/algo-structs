@@ -4,16 +4,13 @@ la calificación es menor a 60 (reprobado), entre 60 y 69 (regular), entre
 70 y 79 (bueno), entre 80 y 89 (muy bueno), o entre 90 y 100 (excelente).
 """
 
-
 notas = []
 num_estudiantes = int(input("\nIngrese el número de estudiantes: "))
 print()
 
 
 for i in range(num_estudiantes):
-    notas.append(
-        float(input(f"Ingrese la nota del estudiante #{i + 1}: "))
-    )
+    notas.append(float(input(f"Ingrese la nota del estudiante #{i + 1}: ")))
 
 
 print("\n")
