@@ -35,13 +35,14 @@ def crear_diccionario(diccionario: dict[str, str], limite: int = 5) -> dict[str,
 
         return diccionario
 
-    for _ in range(num_palabras):
-        diccionario[
-            input("\nIngrese la palabra en inglés: ")
-        ] = input(
-            "\nIngrese la traducción de su palabra en español: "
-        )
+    for i in range(num_palabras):
+        print(f"\n\nPalabra #{i + 1}:")
+        print("---------------------------------------------")
+        ingles = input("Inglés: ")
+        espanol = input("Traducción a español: ")
+        diccionario[ingles] = espanol
 
+    input("\nPresione 'Enter' para regresar al menú principal...")
     return diccionario
 
 
@@ -66,7 +67,7 @@ def menu_principal(diccionario: dict[str, str], limite: int = 5) -> None:
     """
 
     opcion = ""
-    while opcion != "6":
+    while opcion != "3":
         system("cls || clear")
         print("\nDiccionario Inglés-Español:")
         print("-----------------------------------------------------\n")

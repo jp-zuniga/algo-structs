@@ -67,7 +67,7 @@ def agregar_producto(inventario: list[Producto]) -> None:
     """
 
     print("\nAgregar Producto Nuevo:")
-    print("---------------------------------------------")
+    print("-----------------------------------------------------")
 
     print("\nIngrese los datos del producto:")
     try:
@@ -122,6 +122,8 @@ def mostrar_productos(inventario: list[Producto]) -> None:
     for producto in inventario:
         consultar_producto(producto.codigo, inventario)
 
+    input("\nPresione 'Enter' para regresar al menú principal...")
+
 
 def modificar_producto(codigo: int, inventario: list[Producto]) -> None:
     """
@@ -135,17 +137,17 @@ def modificar_producto(codigo: int, inventario: list[Producto]) -> None:
         input(f"\n¡No existe un producto con el código '{codigo}'!")
         return None
 
-    # eliminar el producto original para sobreescribirlo
-    inventario.remove(producto_modificado)
-
     print("\nModificar Producto:")
-    print("---------------------------------------------")
+    print("-----------------------------------------------------")
 
     consultar_producto(codigo, inventario)
     print()
 
+    # eliminar el producto original para sobreescribirlo
+    inventario.remove(producto_modificado)
+
     # pedir nuevos datos
-    print("\nIngrese los nuevos datos del producto (dejar en blanco para no modificar):")
+    print("Ingrese los nuevos datos del producto (dejar en blanco para no modificar):")
     nuevo_nombre = input("Nombre: ")
     nueva_cantidad = input("Cantidad: ")
     nuevo_precio = input("Precio: ")
@@ -176,7 +178,7 @@ def modificar_producto(codigo: int, inventario: list[Producto]) -> None:
         return modificar_producto(codigo, inventario)
 
     inventario.append(producto_modificado)
-    print(
+    input(
         f"\n¡Datos del producto #{producto_modificado.codigo}"
         + " fueron actualizados exitosamente!"
     )
@@ -196,7 +198,7 @@ def eliminar_producto(codigo: int, inventario: list[Producto]) -> None:
         return
 
     print("\nEliminar Producto:")
-    print("---------------------------------------------")
+    print("-----------------------------------------------------")
 
     consultar_producto(codigo, inventario)
     print()

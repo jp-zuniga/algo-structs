@@ -16,9 +16,8 @@ def consultar_saldo(saldo: float) -> None:
 
     print("\nEstado de Cuenta:")
     print("---------------------------------------------")
-    print(f"\nSaldo actual: {saldo:.6f}")
-
-    input("Presione 'Enter' para regresar al menú principal...")
+    print(f"Saldo actual: {saldo:.2f}")
+    input("\nPresione 'Enter' para regresar al menú principal...")
 
 
 def pedir_monto(accion: str) -> float:
@@ -62,6 +61,7 @@ def retirar(saldo: float) -> float:
         )
     else:
         saldo -= monto
+        input("\n¡Monto retirado exitosamente!")
 
     return saldo
 
@@ -72,7 +72,7 @@ def menu_principal(saldo: float) -> None:
     """
 
     opcion = ""
-    while opcion != "6":
+    while opcion != "4":
         system("cls || clear")
         print("\nGestión de Cuenta Bancaria")
         print("-----------------------------------------------------\n")
@@ -88,11 +88,9 @@ def menu_principal(saldo: float) -> None:
                 system("cls || clear")
                 consultar_saldo(saldo)
             case "2":
-                system("cls || clear")
-                depositar(saldo)
+                saldo = depositar(saldo)
             case "3":
-                system("cls || clear")
-                retirar(saldo)
+                saldo = retirar(saldo)
             case "4":
                 print("\nSaliendo del programa...\n")
             case _:
