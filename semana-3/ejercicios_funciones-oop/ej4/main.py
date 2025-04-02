@@ -7,7 +7,7 @@ métodos para agregar, buscar, actualizar y eliminar productos.
 
 from os import system
 
-from .inventario import Inventario
+from inventario import Inventario  # pylint: disable=E0401
 
 
 def menu_principal(inventario: Inventario) -> None:

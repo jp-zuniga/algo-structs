@@ -5,7 +5,7 @@ Definición de la clase Inventario.
 from os import system
 from typing import Optional
 
-from .producto import Producto
+from producto import Producto  # pylint: disable=E0401
 
 
 class Inventario:
@@ -190,6 +190,7 @@ class Inventario:
         )
 
         return None
+
 
     def eliminar_producto(self) -> None:
         """
