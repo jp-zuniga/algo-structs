@@ -49,14 +49,17 @@ def main() -> None:
     print("\nDatos de Pedido #1:")
     print(f"Cliente: {pedido1.cliente.nombre} ({pedido1.cliente.telefono})")
     print(f"Productos:\n{pedido1.get_producto_str()}")
+    print(f"Total del pedido #1: {pedido1.total}")
 
     print("\nDatos de Pedido #2:")
     print(f"Cliente: {pedido2.cliente.nombre} ({pedido2.cliente.telefono})")
     print(f"Productos:\n{pedido2.get_producto_str()}")
+    print(f"Total del pedido #2: {pedido2.total}")
 
     print("\nDatos de Pedido #3:")
     print(f"Cliente: {pedido3.cliente.nombre} ({pedido3.cliente.telefono})")
     print(f"Productos:\n{pedido3.get_producto_str()}")
+    print(f"Total del pedido #3: {pedido3.total}")
 
     print()
 
