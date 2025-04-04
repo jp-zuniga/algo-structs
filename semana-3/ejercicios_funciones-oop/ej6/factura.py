@@ -23,9 +23,33 @@ class Factura:
         cliente: Union[Cliente, ClienteOro, ClientePlatino],
         productos: list[Producto]
     ):
-        self.codigo = codigo
-        self.cliente = cliente
-        self.productos = productos
+        self.__codigo = codigo
+        self.__cliente = cliente
+        self.__productos = productos
+
+    @property
+    def codigo(self) -> str:
+        """
+        Getter para el atributo protegido __codigo.
+        """
+
+        return self.__codigo
+
+    @property
+    def cliente(self) -> Union[Cliente, ClienteOro, ClientePlatino]:
+        """
+        Getter para el atributo protegido __cliente.
+        """
+
+        return self.__cliente
+
+    @property
+    def productos(self) -> list[Producto]:
+        """
+        Getter para el atributo protegido __productos.
+        """
+
+        return self.__productos
 
     def get_producto_str(self) -> str:
         """
@@ -53,26 +77,26 @@ class Factura:
         subtotal = total * (1 - self.cliente.descuento + 1)
         reporte = ""
 
-        reporte += "=" * 50
+        reporte += "=" * 75
         reporte += f"\nFACTURA #{self.codigo}\n"
-        reporte += "=" * 50
+        reporte += "=" * 75
 
         reporte += "\nDATOS DEL CLIENTE:\n"
-        reporte += "-" * 50
+        reporte += "-" * 75
         reporte += f"\nNombre: {self.cliente.nombre}"
         reporte += f"\nNúmero de teléfono: {self.cliente.telefono}"
         reporte += f"\nDescuento aplicable: {(1 - self.cliente.descuento) * 100:.0f}%\n"
 
-        reporte += "-" * 50
+        reporte += "-" * 75
         reporte += "\nPRODUCTOS:\n"
-        reporte += "-" * 50
+        reporte += "-" * 75
         reporte += "\n" + self.get_producto_str()
 
-        reporte += "\n" + "=" * 50
+        reporte += "\n" + "=" * 75
         reporte += f"\nSUBTOTAL: C${subtotal:.2f}"
         reporte += f"\nDESCUENTO: {(1 - self.cliente.descuento) * 100:.0f}%"
         reporte += f"\nTOTAL A PAGAR: C${total:.2f}\n"
-        reporte += "=" * 50
+        reporte += "=" * 75
         reporte += "\n"
 
         return reporte
