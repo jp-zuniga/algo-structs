@@ -75,6 +75,7 @@ def menu_principal(gastos: list[Gasto]) -> None:
                             "\nIngrese el número del mes de gastos que desea visualizar: "
                         )
                     )
+
                     if mes <= 0 or mes > 12:
                         raise ValueError
 
@@ -104,6 +105,7 @@ def menu_principal(gastos: list[Gasto]) -> None:
                                 "\nIngrese el número del mes de gastos que desea visualizar: "
                             )
                         )
+
                         if mes <= 0 or mes > 12:
                             raise ValueError
 
