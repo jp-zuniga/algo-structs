@@ -2,7 +2,8 @@
 Implementación de una lista enlazada.
 """
 
-from .lista_enlazada import Node, LinkedList
+from .node import Node
+from .linked_list import LinkedList
 
 
 __all__ = [

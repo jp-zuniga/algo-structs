@@ -4,16 +4,7 @@ Implementación personalizada de una lista enlazada.
 
 from typing import Any, Optional
 
-
-class Node:
-    """
-    Representa un nodo en una lista enlazada,
-    con el dato que almacena, y el proximo elemento en la lista.
-    """
-
-    def __init__(self, data: Any, next_node: Optional["Node"] = None):
-        self.data = data
-        self.next = next_node
+from .node import Node
 
 
 class LinkedList:
@@ -21,18 +12,22 @@ class LinkedList:
     Implementación personalizada de una lista enlazada.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.head: Optional[Node] = None
+        self.size = 0
+
+    def __len__(self) -> int:
+        return self.size
 
     def __str__(self) -> str:
         current = self.head
+        elements = []
 
-        list_str = "[ "
         while current is not None:
-            list_str += f"{current.data}{"," if current.next is not None else ""}"
-        list_str += " ]"
+            elements.append(str(current.data))
+            current = current.next
 
-        return list_str
+        return f"[ {", ".join(elements)} ]"
 
     def is_empty(self) -> bool:
         """
@@ -47,14 +42,18 @@ class LinkedList:
         """
 
         self.head = Node(data=data, next_node=self.head)
+        self.size += 1
 
     def add_at_end(self, data: Any) -> None:
         """
         Agrega un nuevo elemento al final de la lista enlazada.
         """
 
+        new_node = Node(data)
+
         if self.is_empty():
-            self.head = Node(data)
+            self.head = new_node
+            self.size += 1
             return
 
         current = self.head
@@ -62,7 +61,8 @@ class LinkedList:
             if current.next is not None:  # type: ignore
                 current = current.next  # type: ignore
             else:
-                current.next = Node(data)  # type: ignore
+                current.next = new_node  # type: ignore
+                self.size += 1
                 return
 
     def search(self, data: Any) -> Optional[Node]:
@@ -70,31 +70,28 @@ class LinkedList:
         Busca el valor de un nodo en la lista.
         """
 
-        elem_actual = self.head
-
-        while True:
-            if elem_actual.data == data:  # type: ignore
-                return elem_actual
-            if elem_actual.next is None:  # type: ignore
-                return None
-
-            elem_actual = elem_actual.next  # type: ignore
-
-    def delete(self, data: Any) -> bool:
-        """
-        Elimina el valor de un nodo.
-        """
-
         current = self.head
-        previous = None
 
-        while current is not None and current.data != data:
+        while current is not None:
+            if current.data == data:
+                return current
+            current = current.next
+
+        return None
+
+    def delete(self, data: Any) -> None:
+        """
+        Elimina todos los nodos con el valor especificado.
+        """
+
+        previous = None
+        current = self.head
+
+        while current is not None:
+            if current.data == data:
+                if previous is None:
+                    self.head = current.next
+                else:
+                    previous.next = current.next
             previous = current
             current = current.next
-            if previous is None:
-                self.head = current.next
-            elif current is not None:
-                previous.next = current.next
-                current.next = None
-
-        return True

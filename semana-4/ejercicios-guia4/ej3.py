@@ -3,7 +3,7 @@ Construir un método imprime_inverso() que imprima los elementos de una lista
 enlazada de enteros en orden inverso a partir de una posición p.
 """
 
-from lista_enlazada import LinkedList
+from linked_list import LinkedList
 
 
 def imprimir_inverso(lista: LinkedList, p: int) -> None:
@@ -21,15 +21,15 @@ def imprimir_inverso(lista: LinkedList, p: int) -> None:
         current = current.next  # type: ignore
         i += 1
 
-        if p == i:
+        if p == i - 1:
             break
 
     print(f"{inversa[::-1]}\n")
 
 
-def menu() -> None:
+def main() -> None:
     """
-    Loop principal del programa que le muestra un menú de opciones al usuario.
+    Ejecución del programa.
     """
 
     lista = LinkedList()
@@ -57,14 +57,6 @@ def menu() -> None:
 
     print("\n-------------------------------------------\n")
     imprimir_inverso(lista, int(p))
-
-
-def main() -> None:
-    """
-    Ejecución del programa.
-    """
-
-    menu()
 
 
 if __name__ == "__main__":
