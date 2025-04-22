@@ -6,7 +6,7 @@ enlazada de enteros en orden inverso a partir de una posición p.
 from linked_list import LinkedList
 
 
-def imprimir_inverso(lista: LinkedList, p: int) -> None:
+def imprimir_inverso(lista: LinkedList[int], p: int) -> None:
     """
     Imprime los elementos de una lista enlazada de
     enteros en orden inverso a partir de una posición p.
@@ -32,7 +32,7 @@ def main() -> None:
     Ejecución del programa.
     """
 
-    lista = LinkedList()
+    lista: LinkedList[int] = LinkedList()
     print()
 
     while True:
@@ -43,15 +43,15 @@ def main() -> None:
         if elemento == "":
             break
         if not elemento.isnumeric():
-            input("\n¡Error! Elemento ingresado no es un número, intente nuevamente...")
+            input("\n¡Error! Elemento ingresado no es un número entero, intente nuevamente...")
             continue
 
-        lista.add_at_end(elemento)
+        lista.add_at_end(int(elemento))
 
     while True:
         p = input("Ingrese el índice a partir para imprimir los elementos en orden inverso: ")
         if not p.isnumeric():
-            input("\n¡Error! String ingresado no es un número, intente nuevamente...")
+            input("\n¡Error! String ingresado no es un número entero, intente nuevamente...")
             continue
         break
 

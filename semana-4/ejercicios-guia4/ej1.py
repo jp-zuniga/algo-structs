@@ -12,7 +12,7 @@ def main() -> None:
     Ejecución del programa.
     """
 
-    lista = LinkedList()
+    lista: LinkedList[int] = LinkedList()
     print()
 
     while True:
@@ -23,7 +23,7 @@ def main() -> None:
         if elemento == "":
             break
         if not elemento.isnumeric():
-            input("\n¡Error! Elemento ingresado no es un número, intente nuevamente...")
+            input("\n¡Error! Elemento ingresado no es un número entero, intente nuevamente...")
             continue
 
         lista.add_at_end(int(elemento))
@@ -31,7 +31,7 @@ def main() -> None:
     while True:
         n = input("Ingrese el valor a eliminar de la lista: ")
         if not n.isnumeric():
-            input("\n¡Error! String ingresado no es un número, intente nuevamente...")
+            input("\n¡Error! String ingresado no es un número entero, intente nuevamente...")
             continue
         break
 

@@ -1,12 +1,12 @@
 """
-Construir un método cant_vocales() que determine la
+Construir un método encontrar_vocales() que determine la
 cantidad de vocales almacenadas en una lista de caracteres.
 """
 
 from linked_list import LinkedList
 
 
-def encontrar_vocales(lista: LinkedList) -> int:
+def encontrar_vocales(lista: LinkedList[str]) -> int:
     """
     Encuentra la cantidad de vocales en una lista enlazada de caracteres.
     """
@@ -27,9 +27,9 @@ def main() -> None:
     Ejecución del programa.
     """
 
-    lista = LinkedList()
-    print()
+    lista: LinkedList[str] = LinkedList()
 
+    print()
     while True:
         elemento = input(
             "Ingrese el caracter que desea agregar a la lista (dejar vacío para terminar): "
