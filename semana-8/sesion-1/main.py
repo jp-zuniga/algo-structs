@@ -13,14 +13,15 @@ def menu_principal(sis: SisCine) -> None:
     """
 
     opcion = ""
-    while opcion != "4":
+    while opcion != "5":
         system("cls || clear")
         print("\nSistema de Entrada para Cines")
         print("-----------------------------------------------------\n")
         print("1. Agregar cliente a fila")
-        print("2. Atender siguiente cliente")
-        print("3. Mostrar estado actual de la fila")
-        print("4. Salir")
+        print("2. Ver siguiente cliente")
+        print("3. Atender siguiente cliente")
+        print("4. Mostrar estado actual de la fila")
+        print("5. Salir")
 
         opcion = input("\n-> ")
 
@@ -30,15 +31,18 @@ def menu_principal(sis: SisCine) -> None:
                 print("--------------------------------")
                 sis.agregar_cliente(
                     Cliente(
-                        input("Película que verá el cliente: "),
                         input("ID del boleto del cliente: "),
+                        input("Nombre del cliente: "),
+                        input("Película que verá el cliente: "),
                     )
                 )
             case "2":
-                print(f"Cliente atendido:\n{sis.atender_cliente()}")
+                print(f"Próximo cliente en la fila:\n{sis.atender_cliente()}")
             case "3":
-                input(f"Estado actual de la fila:\n{str(sis.fila_clientes)}")
+                print(f"Cliente atendido:\n{sis.atender_cliente()}")
             case "4":
+                input(f"\nEstado actual de la fila:\n{str(sis)}")
+            case "5":
                 print("\nSaliendo del programa...\n")
             case _:
                 input("\n¡Opción inválida, intente nuevamente!")

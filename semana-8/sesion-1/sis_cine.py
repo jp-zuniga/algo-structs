@@ -14,7 +14,15 @@ class SisCine:
         self.fila_clientes = fila
 
     def __str__(self) -> str:
-        return str(self.fila_clientes)
+        str_sis = "["
+        str_fila = str(self.fila_clientes)[1:-1].strip('"{').split("},")
+
+        for i, elem in enumerate(str_fila):
+            str_sis += f"\n    {i + 1}. [ {elem} ],"
+
+        str_sis += "\n]"
+        return str_sis
+
 
     def agregar_cliente(self, nuevo: Cliente) -> None:
         """
@@ -22,6 +30,13 @@ class SisCine:
         """
 
         self.fila_clientes.enqueue(nuevo)
+
+    def siguiente_cliente(self) -> Cliente:
+        """
+        Retorna el siguiente cliente a atender en la fila.
+        """
+
+        return self.fila_clientes.peek()
 
     def atender_cliente(self) -> Cliente:
         """

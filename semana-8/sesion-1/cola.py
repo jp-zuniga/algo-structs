@@ -30,7 +30,7 @@ class Cola(Generic[T]):
         """
         return len(self) == 0
 
-    def check_front(self) -> T:
+    def peek(self) -> T:
         """
         Retorna el primer elemento de la cola.
         """
