@@ -22,7 +22,7 @@ class Cola(Generic[T]):
         return len(self.elementos)
 
     def __str__(self) -> str:
-        return str(self.elementos)
+        return str([str(elem) for elem in self.elementos])
 
     def is_empty(self) -> bool:
         """
